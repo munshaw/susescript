@@ -2,6 +2,16 @@
 
 set -e
 
+function emacs {
+    sudo zypper in -y ispell
+    sudo zypper in -y emacs
+    git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
+    pushd ~/.emacs.d/private
+    curl -L https://raw.githubusercontent.com/languagetool-org/languagetool/master/install.sh | bash
+    popd
+    cp .spacemacs ~
+}
+
 function node {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
     source ~/.bashrc
@@ -14,7 +24,7 @@ function updateNode {
 }
 
 function essential {
-    sudo zypper install -t pattern devel_basis
+    sudo zypper in -y -t pattern devel_basis
 }
 
 function crypto {
@@ -43,6 +53,7 @@ function help {
     echo "essential   Install essentail development tools"
     echo "node        Install nodejs"
     echo "nodeUpdate  Update nodejs"
+    echo "emacs       Install spacemacs"
 }
 
 if [[ $# -eq 0 ]]
@@ -62,5 +73,8 @@ case $1 in
 	;;
     updateNode)
         node
+	;;
+    emacs)
+        emacs
 	;;
 esac

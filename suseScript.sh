@@ -16,6 +16,13 @@ function emacs {
     cp .spacemacs ~
 }
 
+function updateEmacs {
+    pushd ~/.emacs.d
+    git pull
+    popd
+    echo "Now update your packages inside emacs!"
+}
+
 function node {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
     source ~/.bashrc
@@ -58,6 +65,7 @@ function help {
     echo "node        Install nodejs"
     echo "nodeUpdate  Update nodejs"
     echo "emacs       Install spacemacs"
+    echo "updateEmacs Update spacemacs"
     echo "texlive     Install latex"
 }
 
@@ -84,5 +92,8 @@ case $1 in
         ;;
     texlive)
         texlive
+        ;;
+    updateEmacs)
+        updateEmacs
         ;;
 esac

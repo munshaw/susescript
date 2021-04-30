@@ -35,8 +35,8 @@ function updateNode {
 }
 
 function rust {
-    #curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    #source ~/.bashrc
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source ~/.bashrc
     sudo zypper in -y openssl-devel
     cargo install cargo-edit
     cargo install cargo-audit

@@ -2,25 +2,8 @@
 
 set -e
 
-function creative {
-   flatpak install com.github.libresprite.LibreSprite
-
-   flatpak install org.blender.Blender
-   pushd ~/Downloads
-   wget https://github.com/Radivarig/UvSquares/archive/master.zip -O UvSquares.zip
-   popd
-
-   sudo zypper install krita
-   sudo zypper install gimp
-   sudo zypper install inkscape
-   sudo zypper install audacity
-   sudo zypper install lmms
-   sudo zypper install lmms-vst
-}
-
 function essential {
     sudo zypper install -t pattern devel_basis
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
 
 function crypto {
@@ -47,7 +30,6 @@ function crypto {
 function help {
     echo "crypto      Show crypto instructions"
     echo "essential   Install essentail development tools"
-    echo "creative    Install creative tools"
 }
 
 if [[ $# -eq 0 ]]
@@ -61,8 +43,5 @@ case $1 in
 	;;
     essential)
 	essential
-	;;
-    creative)
-        creative
 	;;
 esac

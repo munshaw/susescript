@@ -2,6 +2,10 @@
 
 set -e
 
+function texlive {
+    sudo zypper in -y texlive
+}
+
 function emacs {
     sudo zypper in -y ispell
     sudo zypper in -y emacs
@@ -54,6 +58,7 @@ function help {
     echo "node        Install nodejs"
     echo "nodeUpdate  Update nodejs"
     echo "emacs       Install spacemacs"
+    echo "texlive     Install latex"
 }
 
 if [[ $# -eq 0 ]]
@@ -64,17 +69,20 @@ fi
 case $1 in
     crypto)
         crypto
-	;;
+        ;;
     essential)
-	essential
-	;;
+        essential
+        ;;
     node)
         node
-	;;
+        ;;
     updateNode)
         node
-	;;
+        ;;
     emacs)
         emacs
-	;;
+        ;;
+    texlive)
+        texlive
+        ;;
 esac

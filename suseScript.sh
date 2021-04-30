@@ -2,6 +2,17 @@
 
 set -e
 
+function node {
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+    source ~/.bashrc
+    nvm install node
+}
+
+function updateNode {
+    nvm install node --reinstall-packages-from=node
+    nvm install-latest-npm
+}
+
 function essential {
     sudo zypper install -t pattern devel_basis
 }
@@ -43,5 +54,11 @@ case $1 in
 	;;
     essential)
 	essential
+	;;
+    node)
+        node
+	;;
+    updateNode)
+        node
 	;;
 esac

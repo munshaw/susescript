@@ -51,7 +51,7 @@ This function should only modify configuration layer settings."
      colors
      pdf
      speed-reading
-     (languagetool :variables langtool-language-tool-jar "~/.emacs.d/private/LanguageTool-5.3-stable/languagetool-commandline.jar")
+     (languagetool :variables langtool-language-tool-jar "~/.emacs.d/private/LanguageTool-5.3-stable/languagetool-commandline.jar" langtool-default-language "en-CA")
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or

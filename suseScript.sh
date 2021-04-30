@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 
 set -e
 
@@ -34,6 +34,34 @@ function updateNode {
     nvm install-latest-npm
 }
 
+function rust {
+    #curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    #source ~/.bashrc
+    sudo zypper in -y openssl-devel
+    cargo install cargo-edit
+    cargo install cargo-audit
+    cargo install wasm-pack
+    cargo install miniserve
+    pushd ~/Downloads
+    git clone https://github.com/rust-analyzer/rust-analyzer.git
+    cd rust-analyzer
+    cargo xtask install --server
+    popd
+}
+
+function updateRust {
+    rustup update
+    cargo install cargo-edit
+    cargo install cargo-audit
+    cargo install wasm-pack
+    cargo install miniserve
+    pushd ~/Downloads
+    cd rust-analyzer
+    git pull
+    cargo xtask install --server
+    popd
+}
+
 function essential {
     sudo zypper in -y -t pattern devel_basis
 }
@@ -67,6 +95,8 @@ function help {
     echo "emacs       Install spacemacs"
     echo "updateEmacs Update spacemacs"
     echo "texlive     Install latex"
+    echo "rust        Install rust"
+    echo "updateRust  Update rust"
 }
 
 if [[ $# -eq 0 ]]
@@ -95,5 +125,11 @@ case $1 in
         ;;
     updateEmacs)
         updateEmacs
+        ;;
+    rust)
+        rust
+        ;;
+    updateRust)
+        updateRust
         ;;
 esac

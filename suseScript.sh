@@ -41,6 +41,8 @@ function crypto {
 function help {
     echo "crypto      Show crypto instructions"
     echo "essential   Install essentail development tools"
+    echo "node        Install nodejs"
+    echo "nodeUpdate  Update nodejs"
 }
 
 if [[ $# -eq 0 ]]

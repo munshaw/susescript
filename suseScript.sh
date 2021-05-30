@@ -31,7 +31,7 @@ function node {
 
 function updateNode {
     nvm install node --reinstall-packages-from=node
-    nvm install-latest-npm
+    npm install -g npm@latest
 }
 
 function rust {
@@ -91,7 +91,7 @@ function help {
     echo "crypto      Show crypto instructions"
     echo "essential   Install essentail development tools"
     echo "node        Install nodejs"
-    echo "nodeUpdate  Update nodejs"
+    echo "updateNode  Update nodejs"
     echo "emacs       Install spacemacs"
     echo "updateEmacs Update spacemacs"
     echo "texlive     Install latex"

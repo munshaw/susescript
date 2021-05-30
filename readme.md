@@ -10,6 +10,7 @@ Some other software I use
 * KeepassXC
 * Geogebra
 * Blender
+* Godot
 * OBS
 * Audacity
 * LMMS

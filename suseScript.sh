@@ -3,7 +3,7 @@
 set -e
 
 function texlive {
-    sudo zypper in -y texlive
+    sudo zypper in -y texlive-scheme-full
 }
 
 function emacs {

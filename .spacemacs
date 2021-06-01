@@ -559,8 +559,12 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (global-column-enforce-mode)
-  (exec-path-from-shell-initialize))
-
+  (exec-path-from-shell-initialize)
+  (with-eval-after-load 'org
+    (setq org-format-latex-options
+          (plist-put org-format-latex-options :scale 1.25))
+    )
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -575,10 +579,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
- '(evil-want-Y-yank-to-eol nil)
- '(org-format-latex-options
-   '(:foreground default :background default :scale 1.25 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\["))))
+ '(evil-want-Y-yank-to-eol nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

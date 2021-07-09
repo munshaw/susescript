@@ -18,4 +18,4 @@ Some other software I use
 * Inkscape
 * Krita
 * LibreSprite
-* OBS
+* OBS (v4l2loopback for virtual camera)
